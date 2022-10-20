@@ -1,6 +1,7 @@
 <input type="button" (click)="getAllGiftCard()" value="All Gift Cards">
 
-<table border="2px">
+<table border="5px"  class="table table-bordered">
+    <thead>
     <tr *ngIf="brands.length>0">
 
 
@@ -9,6 +10,8 @@
         <th>Brand Description</th>
         <th>Brand Image Url</th>
     </tr>
+</thead>
+<tbody>
     <tr *ngFor="let g of brands">
 
 
@@ -22,7 +25,7 @@
         <td><input type="button" (click)="updateBrand(g.brandId)" value="Update" class="btn btn-primary">
         </td>
     </tr>
-
+</tbody>
 </table>
 
 <p>Add a gift Card to your List</p>

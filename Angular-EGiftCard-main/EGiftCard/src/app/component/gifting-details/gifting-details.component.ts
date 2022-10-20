@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { GiftingDetailsService } from 'src/app/service/gifting-details.service';
 import { UserGiftDetails } from 'src/app/user-gift-details';
@@ -19,6 +19,11 @@ export class GiftingDetailsComponent implements OnInit {
   loggedInStatus: boolean;
 
   loggedIn: any;
+   recepientName: any;
+recepientEmail: any;
+recepientMobile: any;
+message: any;
+giftCardAmount: any;
   constructor(private fb: FormBuilder, private giftingDetailsService: GiftingDetailsService, private router: Router) {
     this.userDetails = new Array();
     this.loggedIn = sessionStorage.getItem("loggedIn");
@@ -28,11 +33,11 @@ export class GiftingDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     this.PurchaseForm = this.fb.group({
-      giftCardAmount: new FormControl(''),
-      recepientName: new FormControl(''),
-      recepientEmail: new FormControl(''),
-      recepientMobile: new FormControl(''),
-      message: new FormControl('')
+      giftCardAmount: ['', [Validators.required]],
+      recepientName:  ['', [Validators.required]],
+      recepientEmail:  ['', [Validators.required]],
+      recepientMobile: ['', [Validators.required]],
+      message: ['', [Validators.required]]
     })
   }
 

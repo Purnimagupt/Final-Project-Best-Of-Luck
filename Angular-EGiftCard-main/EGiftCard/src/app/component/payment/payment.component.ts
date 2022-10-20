@@ -68,7 +68,7 @@ export class PaymentComponent implements OnInit {
       
       console.log(JSON.stringify(data));
       console.log("Details added")
-      alert("Payment Successful")
+      alert("Payment Successfull, Card Sent Successfully")
     },
       (err: any) => {
         console.log(err);

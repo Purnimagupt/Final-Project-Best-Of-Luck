@@ -15,26 +15,61 @@
       <div class="form">
         <div class="inputfield">
           <label for="RecepientName" class="form-label">Receiver’s Name</label>
-          <input type="text" class="input" id="RecepientName" formControlName="recepientName" />
+          <input type="text" class="input" id="RecepientName" formControlName="recepientName"
+            [class.is-invalid]="recepientName?.invalid && PurchaseForm.get('recepientName')?.touched" />
+
+          <div *ngIf="PurchaseForm.get('recepientName')?.invalid && PurchaseForm.get('recepientName')?.touched">
+            <small *ngIf="PurchaseForm.get('recepientName')?.hasError('required')" class="text-danger">
+              *Required
+            </small>
+          </div>
         </div>
+
         <div class="inputfield">
           <label for="RecepientEmail" class="form-label">Receiver’s Email Id</label>
-          <input type="text" class="input" id="RecepientEmail" formControlName="recepientEmail" />
+          <input type="text" class="input" id="RecepientEmail" formControlName="recepientEmail"
+            [class.is-invalid]="recepientEmail?.invalid && PurchaseForm.get('recepientEmail')?.touched" />
+
+          <div *ngIf="PurchaseForm.get('recepientEmail')?.invalid && PurchaseForm.get('recepientEmail')?.touched">
+            <small *ngIf="PurchaseForm.get('recepientEmail')?.hasError('required')" class="text-danger">
+              *Required
+            </small>
+
+          </div>
         </div>
 
         <div class="inputfield">
           <label for="RecepientMobile" class="form-label">Receiver's Phone Number</label>
-          <input type="text" class="input" id="RecepientMobile" formControlName="recepientMobile" />
-        </div>
+          <input type="text" class="input" id="RecepientMobile" formControlName="recepientMobile"
+            [class.is-invalid]="recepientMobile?.invalid && PurchaseForm.get('recepientMobile')?.touched" />
 
+          <div *ngIf="PurchaseForm.get('recepientMobile')?.invalid && PurchaseForm.get('recepientMobile')?.touched">
+            <small *ngIf="PurchaseForm.get('recepientMobile')?.hasError('required')" class="text-danger">
+              *Required
+            </small>
+          </div>
+        </div>
         <div class="inputfield">
           <label for="Message" class="form-label">Message for Receiver</label>
-          <input type="text" class="input" id="Message" formControlName="message" />
+          <input type="text" class="input" id="Message" formControlName="message"
+            [class.is-invalid]="message?.invalid && PurchaseForm.get('message')?.touched" />
+
+          <div *ngIf="PurchaseForm.get('message')?.invalid && PurchaseForm.get('message')?.touched">
+            <small *ngIf="PurchaseForm.get('message')?.hasError('required')" class="text-danger">
+              *Required
+            </small>
+          </div>
         </div>
         <div class="inputfield">
           <label class="form-label">Amount</label>
           <div for="Amount" class="custom_select">
-            <input type="text" class="input" id="Amount" formControlName="giftCardAmount">
+            <input type="text" class="input" id="Amount" formControlName="giftCardAmount"
+              [class.is-invalid]="giftCardAmount?.invalid && PurchaseForm.get('giftCardAmount')?.touched" />
+          </div>
+          <div *ngIf="PurchaseForm.get('giftCardAmount')?.invalid && PurchaseForm.get('giftCardAmount')?.touched">
+            <small *ngIf="PurchaseForm.get('giftCardAmount')?.hasError('required')" class="text-danger">
+              *Required
+            </small>
           </div>
         </div>
 

@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
 
   login(loginForm: NgForm) {
     console.log("Form is submitted!");
-    alert("Login Successfully");
+    alert("Login Successful");
     console.log(loginForm.value);
     this.userService.login(loginForm.value).subscribe(
       (response: any) => {

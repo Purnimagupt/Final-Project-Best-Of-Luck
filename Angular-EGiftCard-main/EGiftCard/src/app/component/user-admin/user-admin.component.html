@@ -1,25 +1,29 @@
 <link href="user-admin.component.css">
 <button class="button" class="button" (click)="getAllUser()"> All Users </button>
-<table border="2px" class="table table-bordered">
-    <thead>
-        <tr *ngIf="users.length>0">
+<table border="4px" class="table table-bordered">
+    <thead style="width: -100px ;">
+        <tr *ngIf="users.length>0" >
             <th>UserName</th>
             <th>Name</th>
             <th>User Email </th>
             <th>User Mobile</th>
-            <th>User Password </th>
+            <!-- <th>User Password </th> -->
+            <th>Delete</th>
+            <th>Update</th>
         </tr>
     </thead>
+    <tbody style="width:-0px; ">
     <tr *ngFor="let u of users">
         <td>{{u.userName}}</td>
         <td>{{u.name}}</td>
         <td>{{u.email}}</td>
         <td>{{u.mobile}}</td>
-        <td>{{u.password}}</td>
+        <!-- <td>{{u.password}}</td> -->
         <td><input type="button" (click)="deleteUser(u.userName)" value="Delete" class="btn btn-primary"></td>
         <td><input type="button" (click)="updateUser(u.userName)" value="Update" class="btn btn-primary">
 
     </tr>
+</tbody>
 </table>
 <br>
 <p>Add New User with this form</p>

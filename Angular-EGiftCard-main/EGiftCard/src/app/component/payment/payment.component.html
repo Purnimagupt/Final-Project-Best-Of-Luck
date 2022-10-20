@@ -26,21 +26,21 @@
                     *Required
                 </small>
 
-            </div>
+            </div> 
 
 
             <div class="input_box">
                 <input type="text" placeholder="Name on Card" required class="name" formControlName="nameOnCard"
                     [class.is-invalid]="nameOnCard?.invalid && paymentForm.get('nameOnCard')?.touched">
                 <i class="fa fa-user icon"></i>
+           
             </div>
-
             <div *ngIf="paymentForm.get('nameOnCard')?.invalid && paymentForm.get('nameOnCard')?.touched">
                 <small *ngIf="paymentForm.get('nameOnCard')?.hasError('required')" class="text-danger">
                     *Required
                 </small>
             </div>
-
+        
 
 
 
@@ -51,23 +51,23 @@
                         formControlName="cardNumber"
                         [class.is-invalid]="cardNumber?.invalid && paymentForm.get('cardNumber')?.touched">
                     <i class="fa fa-credit-card icon"></i>
-                </div>
+               
             </div>
             <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched">
                 <small *ngIf="paymentForm.get('cardNumber')?.hasError('required')" class="text-danger">
                     *Required
                 </small>
                 <small *ngIf="paymentForm.get('cardNumber')?.hasError('pattern')" class="text-danger">
-                    *Incorrect
+                    *Incorrect(Card Number Should have 14-16 digits long, not more that 16 digits)
                 </small>
-            </div>
+            </div> </div>
 
             <div class="input_group">
                 <div class="input_box">
                     <input type="text" name="" class="name" placeholder="Card CVV 632" formControlName="cvv"
                         [class.is-invalid]="cvv?.invalid && paymentForm.get('cvv')?.touched">
                     <i class="fa fa-user icon"></i>
-                </div>
+                
             </div>
             <div *ngIf="paymentForm.get('cvv')?.invalid && paymentForm.get('cvv')?.touched">
                 <small *ngIf="paymentForm.get('cvv')?.hasError('required')" class="text-danger">
@@ -76,14 +76,15 @@
                 <small *ngIf="paymentForm.get('cvv')?.hasError('pattern')" class="text-danger">
                     *Length should be 3
                 </small>
-            </div>
+            </div></div>
+        
 
             <div class="input_group">
                 <div class="input_box">
                     <input type="text" placeholder=" Card Exp(MM-YYYY)" class="name" formControlName="cardExpiry"
                         [class.is-invalid]="cardExpiry?.invalid && paymentForm.get('cardExpiry')?.touched">
                     <i class="fa fa-calendar icon" aria-hidden="true"></i>
-                </div>
+             
             </div>
 
             <div *ngIf="paymentForm.get('cardExpiry')?.invalid && paymentForm.get('cardExpiry')?.touched">
@@ -94,7 +95,7 @@
                     *Date Format is wrong!
                 </small>
             </div>
-
+        </div>
 
             <div class="input_box">
                 <!-- <input type="number" placeholder="Enter Amount" required class="name"> -->
@@ -106,7 +107,7 @@
                 letter-spacing: 1px;
                 transition: 0.3s;
                 border-radius: 3px;
-                color: #333;" value="amount" formControlName="paymentAmount">
+                color: #333;" value="amount" formControlName="paymentAmount" readonly>
                 <i class="fa fa-money icon" aria-hidden="true"></i>
             </div>
 
