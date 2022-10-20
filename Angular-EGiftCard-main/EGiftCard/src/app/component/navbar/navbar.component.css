@@ -1,0 +1,9 @@
+.navbar-nav .nav-link {
+    color: palevioletred;
+}
+
+.navbar-nav .nav-link.active-link {
+    color: #f52881;
+    font-weight: bold;
+    text-decoration: underline;
+}

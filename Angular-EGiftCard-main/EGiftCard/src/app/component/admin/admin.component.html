@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+
+<style>
+    navbar navbar-expand-lg navbar-light bg-light {
+        background-color: aquamarine;
+    }
+</style>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Welcome to Admin Portal</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<div class="bodyy">
+    <div class="container">
+        <div class="row mt-3" style="margin: left 50px;">
+            <div class="col-sm-5 col-md-6">
+                <div class="card-body text-center">
+                    <div>
+                        <img style="max-width:100px" src="../../../assets/images/man.png" alt="" (click)="showUser()">
+                        <p>User</p>
+                    </div>
+                </div>
+                <br>
+                <div>
+                    <div class="card-body text-center">
+                        <div>
+                            <img style="max-width:100px" src="../../../assets/images/gift-box.png" alt=""
+                                (click)="showGiftCards()">
+                        </div>
+                        <p>Gift Card</p>
+                    </div>
+                </div>
+                <br>
+
+
+            </div>
+            <div class="col-sm-5 col-md-6">
+                <div style="padding: 3%; margin-right: 50%; ;" class="relative md:ml-64 bg-blueGray-100">
+                    <div style="margin-right: 50%;" class="px-4 md:px-10 mx-auto w-full -m-24">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+            </div>
+            <div>
+
+            </div>
+            <div>
+                <div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>

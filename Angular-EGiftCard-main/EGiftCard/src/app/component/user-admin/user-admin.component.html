@@ -1,0 +1,75 @@
+<link href="user-admin.component.css">
+<button class="button" class="button" (click)="getAllUser()"> All Users </button>
+<table border="2px" class="table table-bordered">
+    <thead>
+        <tr *ngIf="users.length>0">
+            <th>UserName</th>
+            <th>Name</th>
+            <th>User Email </th>
+            <th>User Mobile</th>
+            <th>User Password </th>
+        </tr>
+    </thead>
+    <tr *ngFor="let u of users">
+        <td>{{u.userName}}</td>
+        <td>{{u.name}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.mobile}}</td>
+        <td>{{u.password}}</td>
+        <td><input type="button" (click)="deleteUser(u.userName)" value="Delete" class="btn btn-primary"></td>
+        <td><input type="button" (click)="updateUser(u.userName)" value="Update" class="btn btn-primary">
+
+    </tr>
+</table>
+<br>
+<p>Add New User with this form</p>
+
+<form [formGroup]="adminUserForm" (ngSubmit)="saveUser()">
+    <div class="form-group">
+        <div *ngIf="adminUserForm.controls['userName'].errors && 
+        (adminUserForm.controls['userName'].touched || adminUserForm.controls['userName'].dirty)">
+            User Name is required
+        </div>
+        <label for="userName">User Name</label>
+        <input style="border: 2px solid pink;" class="form-control" [readonly]="isUpdate" type="text" name="userName"
+            id="userName" formControlName="userName">
+    </div>
+    <div class="form-group">
+        <div *ngIf="adminUserForm.controls['name'].errors && 
+                (adminUserForm.controls['name'].touched || adminUserForm.controls['name'].dirty)">
+            Name is required
+        </div>
+        <label for="name">Full Name</label>
+        <input style="border: 2px solid pink;" class="form-control" type="text" name="name" id="name"
+            formControlName="name">
+    </div>
+    <div class="form-group">
+        <div *ngIf="adminUserForm.controls['email'].errors && 
+        (adminUserForm.controls['email'].touched || adminUserForm.controls['email'].dirty)">
+            Email is required
+        </div>
+        <label for="email">Email</label>
+        <input style="border: 2px solid pink;" class="form-control" type="text" name="email" id="email"
+            formControlName="email">
+    </div>
+    <div class="form-group">
+        <div *ngIf="adminUserForm.controls['mobile'].errors && 
+        (adminUserForm.controls['mobile'].touched || adminUserForm.controls['mobile'].dirty)">
+            Mobile is required
+        </div>
+        <label for="mobile">Mobile</label>
+        <input style="border: 2px solid pink;" class="form-control" type="text" name="mobile" id="mobile"
+            formControlName="mobile">
+    </div>
+    <div class="form-group">
+        <div *ngIf="adminUserForm.controls['password'].errors && 
+        (adminUserForm.controls['password'].touched || adminUserForm.controls['password'].dirty)">
+            Password is required
+        </div>
+        <label for="password">Password</label>
+        <input style="border: 2px solid pink;" class="form-control" type="text" name="password" id="password"
+            formControlName="password">
+    </div>
+    <br>
+    <input type="submit" value="Save User" class="btn btn-primary" [disabled]="adminUserForm.invalid">
+</form>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="payment.component.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <h2>Payment Form</h2>
+        <form [formGroup]="paymentForm" (ngSubmit)="savePaymentDetails()">
+            <h6>Account</h6>
+            <div class="input_box">
+                <input type="text" placeholder="Full Name" class="name" formControlName="fullName"
+                    [class.is-invalid]="fullName?.invalid && paymentForm.get('fullName')?.touched">
+                <i class="fa fa-user icon"></i>
+            </div>
+
+
+            <div *ngIf="paymentForm.get('fullName')?.invalid && paymentForm.get('fullName')?.touched">
+                <small *ngIf="paymentForm.get('fullName')?.hasError('required')" class="text-danger">
+                    *Required
+                </small>
+
+            </div>
+
+
+            <div class="input_box">
+                <input type="text" placeholder="Name on Card" required class="name" formControlName="nameOnCard"
+                    [class.is-invalid]="nameOnCard?.invalid && paymentForm.get('nameOnCard')?.touched">
+                <i class="fa fa-user icon"></i>
+            </div>
+
+            <div *ngIf="paymentForm.get('nameOnCard')?.invalid && paymentForm.get('nameOnCard')?.touched">
+                <small *ngIf="paymentForm.get('nameOnCard')?.hasError('required')" class="text-danger">
+                    *Required
+                </small>
+            </div>
+
+
+
+
+
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" name="" class="name" placeholder="Card Number 1111-2222-3333-4444"
+                        formControlName="cardNumber"
+                        [class.is-invalid]="cardNumber?.invalid && paymentForm.get('cardNumber')?.touched">
+                    <i class="fa fa-credit-card icon"></i>
+                </div>
+            </div>
+            <div *ngIf="paymentForm.get('cardNumber')?.invalid && paymentForm.get('cardNumber')?.touched">
+                <small *ngIf="paymentForm.get('cardNumber')?.hasError('required')" class="text-danger">
+                    *Required
+                </small>
+                <small *ngIf="paymentForm.get('cardNumber')?.hasError('pattern')" class="text-danger">
+                    *Incorrect
+                </small>
+            </div>
+
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" name="" class="name" placeholder="Card CVV 632" formControlName="cvv"
+                        [class.is-invalid]="cvv?.invalid && paymentForm.get('cvv')?.touched">
+                    <i class="fa fa-user icon"></i>
+                </div>
+            </div>
+            <div *ngIf="paymentForm.get('cvv')?.invalid && paymentForm.get('cvv')?.touched">
+                <small *ngIf="paymentForm.get('cvv')?.hasError('required')" class="text-danger">
+                    *Required
+                </small>
+                <small *ngIf="paymentForm.get('cvv')?.hasError('pattern')" class="text-danger">
+                    *Length should be 3
+                </small>
+            </div>
+
+            <div class="input_group">
+                <div class="input_box">
+                    <input type="text" placeholder=" Card Exp(MM-YYYY)" class="name" formControlName="cardExpiry"
+                        [class.is-invalid]="cardExpiry?.invalid && paymentForm.get('cardExpiry')?.touched">
+                    <i class="fa fa-calendar icon" aria-hidden="true"></i>
+                </div>
+            </div>
+
+            <div *ngIf="paymentForm.get('cardExpiry')?.invalid && paymentForm.get('cardExpiry')?.touched">
+                <small *ngIf="paymentForm.get('cardExpiry')?.hasError('required')" class="text-danger">
+                    *Required
+                </small>
+                <small *ngIf="paymentForm.get('cardExpiry')?.hasError('dateValidator')" class="text-danger">
+                    *Date Format is wrong!
+                </small>
+            </div>
+
+
+            <div class="input_box">
+                <!-- <input type="number" placeholder="Enter Amount" required class="name"> -->
+                <input style="    padding: 14px 10px 14px 50px;
+                width: 100%;
+                background-color: #fcfcfc;
+                border: 1px solid #0003;
+                outline: none;
+                letter-spacing: 1px;
+                transition: 0.3s;
+                border-radius: 3px;
+                color: #333;" value="amount" formControlName="paymentAmount">
+                <i class="fa fa-money icon" aria-hidden="true"></i>
+            </div>
+
+
+            <div class="input_group">
+                <div class="input_box">
+                    <button type="submit" (click)="savePaymentDetails()" class="forsubmit" value="Pay"
+                        routerLink="/home" routerLinkActive="active-link">PAY NOW</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+
+</html>

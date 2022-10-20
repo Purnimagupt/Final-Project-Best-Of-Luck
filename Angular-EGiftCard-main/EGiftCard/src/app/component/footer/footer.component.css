@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.footer {
+    /* overflow: hidden; */
+    /* position: relative; */
+    position: relative;
+    /* top: 100%; */
+    background-color: white;
+    padding: 20px 10px;
+    font: 25px poppins, sans-serif;
+}
+
+h1 {
+    font-weight: bold;
+    /* color: skyblue; */
+    color: palevioletred;
+    font-size: 20x;
+}
+
+p {
+    /* color: skyblue; */
+    color: palevioletred;
+    font-size: 14px;
+}
+
+a {
+    /* color:skyblue; */
+    color: palevioletred;
+    text-decoration: none;
+    padding: 0px 5px;
+    font-size: 17px;
+}
+
+a:hover {
+    color: #f52881;
+}
+
+i {
+    padding: 0px 5px;
+
+}

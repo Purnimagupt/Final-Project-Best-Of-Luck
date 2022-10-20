@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="brands.component.css" type="text/css" />
+</head>
+
+<body>
+    <table id="table">
+        <tr>
+            <td colspan="2">
+                <div class="header">Gift Cards</div>
+            </td>
+
+        </tr>
+        <tr>
+            <td colspan="4">
+            </td>
+        </tr>
+
+        <tr>
+
+            <td *ngFor="let brand of brands| slice:0:4; ;let i as index">
+                <div class="div1">
+                    <img src="{{brand.imageUrl}}" style="width: 100%;" />
+                    <p>{{brand.brandDescription}}</p>
+                    <button class="btn btn1" routerLink="/gifting-detail"
+                        routerLinkActive="active-link">{{brand.brandName}}</button>
+                    <br /><br />
+                </div>
+            </td>
+
+        </tr>
+
+
+        <tr>
+
+            <td *ngFor="let brand of brands| slice:4:8; ;let i as index">
+                <div class="div1">
+                    <img src="{{brand.imageUrl}}" style="width: 100%;" />
+                    <p>{{brand.brandDescription}}</p>
+                    <button class="btn btn1" routerLink="/gifting-detail"
+                        routerLinkActive="active-link">{{brand.brandName}}</button>
+                    <br /><br />
+                </div>
+            </td>
+
+        </tr>
+
+        <tr>
+
+            <td *ngFor="let brand of brands| slice:8:12; ;let i as index">
+                <div class="div1">
+                    <img src="{{brand.imageUrl}}" style="width: 100%;" />
+                    <p>{{brand.brandDescription}}</p>
+                    <button class="btn btn1" routerLink="/gifting-detail"
+                        routerLinkActive="active-link">{{brand.brandName}}</button>
+                    <br /><br />
+                </div>
+            </td>
+
+        </tr>
+
+
+
+    </table>
+</body>
+
+</html>

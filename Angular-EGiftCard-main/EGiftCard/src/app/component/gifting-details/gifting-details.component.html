@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="gifting-details.component.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <form [formGroup]="PurchaseForm" (ngSubmit)="saveUserPurchase()">
+      <div class="title">Gifting Details</div>
+      <div class="form">
+        <div class="inputfield">
+          <label for="RecepientName" class="form-label">Receiver’s Name</label>
+          <input type="text" class="input" id="RecepientName" formControlName="recepientName" />
+        </div>
+        <div class="inputfield">
+          <label for="RecepientEmail" class="form-label">Receiver’s Email Id</label>
+          <input type="text" class="input" id="RecepientEmail" formControlName="recepientEmail" />
+        </div>
+
+        <div class="inputfield">
+          <label for="RecepientMobile" class="form-label">Receiver's Phone Number</label>
+          <input type="text" class="input" id="RecepientMobile" formControlName="recepientMobile" />
+        </div>
+
+        <div class="inputfield">
+          <label for="Message" class="form-label">Message for Receiver</label>
+          <input type="text" class="input" id="Message" formControlName="message" />
+        </div>
+        <div class="inputfield">
+          <label class="form-label">Amount</label>
+          <div for="Amount" class="custom_select">
+            <input type="text" class="input" id="Amount" formControlName="giftCardAmount">
+          </div>
+        </div>
+
+        <div class="inputfield">
+          <label>Greetings</label>
+          <div style="
+              width: 100%;
+              display: inline-block;
+              padding: 10px -5px 0 0;
+              position: relative;
+            ">
+            <img src="../../../assets/images/E-Gift Karo (1).png" style="width: 100%" />
+            <div style="
+                position: absolute;
+                top: 14px;
+                left: 15px;
+                font-size: 16px;
+                color: #fff;
+                font-style: italic;
+                font-weight: 500;
+              ">
+              <span style="font-size: 14px; display: block; font-style: normal">Gift Card Value</span>
+              {{this.PurchaseForm.value.giftCardAmount}}Rs
+            </div>
+          </div>
+
+        </div>
+
+        <div class="inputfield">
+
+          <div *ngIf="loggedInStatus;else loggedOut"><button type="submit" class="btn">Pay Now </button></div>
+          <ng-template #loggedOut> Please Login ,Dear Friend! </ng-template>
+
+
+        </div>
+      </div>
+
+    </form>
+  </div>
+</body>
+
+</html>

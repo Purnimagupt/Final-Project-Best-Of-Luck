@@ -1,0 +1,72 @@
+<input type="button" (click)="getAllGiftCard()" value="All Gift Cards">
+
+<table border="2px">
+    <tr *ngIf="brands.length>0">
+
+
+        <th>Brand id</th>
+        <th>Brand Name</th>
+        <th>Brand Description</th>
+        <th>Brand Image Url</th>
+    </tr>
+    <tr *ngFor="let g of brands">
+
+
+        <td>{{g.brandId}}</td>
+        <td>{{g.brandName}}</td>
+        <td>{{g.brandDescription}}</td>
+        <td>{{g.imageUrl}}</td>
+
+
+        <td><input type="button" (click)="deleteBrand(g.brandId)" value="Delete" class="btn btn-primary"></td>
+        <td><input type="button" (click)="updateBrand(g.brandId)" value="Update" class="btn btn-primary">
+        </td>
+    </tr>
+
+</table>
+
+<p>Add a gift Card to your List</p>
+<form [formGroup]="adminGiftForm" (ngSubmit)="saveGiftCard()">
+
+
+    <div class="form-group">
+        <div *ngIf="adminGiftForm.controls['brandId'].errors && 
+        (adminGiftForm.controls['brandId'].touched || adminGiftForm.controls['brandId'].dirty)">
+            brand Id is required
+        </div>
+        <label for="brandId">Brand Id</label>
+        <input class="form-control" type="text" name="brandId" id="brandId" formControlName="brandId">
+    </div>
+    <div class="form-group">
+        <div *ngIf="adminGiftForm.controls['brandName'].errors && 
+        (adminGiftForm.controls['brandName'].touched || adminGiftForm.controls['brandName'].dirty)">
+            brand Name is required
+        </div>
+        <label for="brandId">Brand Name</label>
+        <input class="form-control" type="text" name="brandName" id="brandId" formControlName="brandName">
+    </div>
+
+    <div class="form-group">
+        <div *ngIf="adminGiftForm.controls['brandDescription'].errors && 
+        (adminGiftForm.controls['brandDescription'].touched || adminGiftForm.controls['brandDescription'].dirty)">
+            brand Description is required
+        </div>
+        <label for="brandDescription">Brand desc</label>
+        <input style="border: 2px solid pink;" class="form-control" type="text" name="brandDescription"
+            id="brandDescription" formControlName="brandDescription">
+    </div>
+
+
+    <div class="form-group">
+        <div *ngIf="adminGiftForm.controls['imageUrl'].errors && 
+        (adminGiftForm.controls['imageUrl'].touched || adminGiftForm.controls['imageUrl'].dirty)">
+            Image Url is required
+        </div>
+        <label for="imageUrl">Image Url</label>
+        <input style="border: 2px solid pink;" class="form-control" type="text" name="imageUrl" id="imageUrl"
+            formControlName="imageUrl">
+    </div>
+
+
+    <input type="submit" value="Save Gift Card" class="btn btn-primary" [disabled]="adminGiftForm.invalid">
+</form>
